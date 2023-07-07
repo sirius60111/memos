@@ -30,9 +30,10 @@ COPY --from=backend /backend-build/memos /usr/local/memos/
 
 EXPOSE 5230
 
+### The `VOLUME` keyword is banned in Dockerfiles. Use Railway volumes instead. https://docs.railway.app/reference/volumes
 # Directory to store the data, which can be referenced as the mounting point.
-RUN mkdir -p /var/opt/memos
-VOLUME /var/opt/memos
+# RUN mkdir -p /var/opt/memos
+# VOLUME /var/opt/memos
 
 ENV MEMOS_MODE="prod"
 ENV MEMOS_PORT="5230"
